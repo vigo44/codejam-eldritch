@@ -45,7 +45,7 @@ body {
 }
 
 .ancient-activ {
-    border: 4px solid red;
+    outline: 4px solid red;
 }
 
 .levels{
@@ -57,13 +57,20 @@ body {
 
 }
 
-.level{
+.level {
     padding: 10px;
     border-radius: 10px;
     border: 4px solid white;
     margin-bottom: 15px;
-    cursor: pointer;
+    opacity: 0.3;
+    pointer-events: none;
     
+}
+
+.level-on {
+    opacity: 1;
+    pointer-events:auto; 
+    cursor: pointer;
 }
 
 .level-activ{
@@ -78,7 +85,7 @@ body {
     opacity: 0.3;
     pointer-events: none;
 }
-.start-activ{
+.start-on{
     opacity: 1;
     pointer-events:auto; 
     cursor: pointer;
@@ -93,7 +100,11 @@ body {
     height: 50px;
     width: 50px;
     border-radius: 50%;
-    
+    color: white;
+    font-size: 25px;
+    box-sizing: border-box;
+    padding-top: 10px;
+    padding-left: 18px;
 }
 
 .dot-green {
@@ -135,10 +146,15 @@ body {
 }
 
 .cards-down{
-    background-image: url(./assets/mythicCardBackground.png);
-    cursor: pointer;
+    pointer-events: none;
+    
 }
 
-.cards-face {
+.cards-down_aktiv{
     background-image: url(./assets/mythicCardBackground.png);
+    cursor: pointer;
+    pointer-events:auto; 
 }
+
+
+
