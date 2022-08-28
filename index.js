@@ -339,7 +339,7 @@ function randomCard (max) {
     return Math.floor(result); // число от 0 до мах-1
 }
 
-function normalizationCards(needCards, cards){
+function normalizationCards(needCards, cards){ // массив случайных кард из исходного
     let resultCards = [];
     while (resultCards.length < needCards) {
         resultCards.push(cards.splice(randomCard(cards.length),1)[0]);
