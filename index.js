@@ -265,7 +265,9 @@ function shuffleСards (){
     levels.forEach((them)=>{
         them.classList.remove('level-on');
     });
-
+    ancients.forEach((them)=>{
+        them.classList.add('ancient-off');
+    });
 
 
 }
@@ -284,6 +286,9 @@ function openCard () {
         });
         levels.forEach((them)=>{
             them.classList.remove('level-activ');
+        });
+        ancients.forEach((them)=>{
+            them.classList.remove('ancient-off');
         });
     };
    
