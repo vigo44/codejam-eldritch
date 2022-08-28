@@ -4,7 +4,7 @@ const iogSothoth = [[0,2,1],[2,3,1],[3,4,0]];
 const shubNiggurath = [[1,2,1],[3,2,1],[2,4,0]];
 const ancientsData = [azathoth, cthulhu, iogSothoth, shubNiggurath];
 let ancientData=[]; // выбранный герой
-let cardsResult=[];
+let cardsResult=[]; // конечная колода
 // необходимое количество карт в колоде
 let necessaryBlue;
 let necessaryBrown;
@@ -334,12 +334,12 @@ function setDots () {
     });
 }
 
-function randomCard (max) {
+function randomCard (max) { // случайное число от 0 до мах-1
     let result =  Math.random()*max;  
-    return Math.floor(result); // число от 0 до мах-1
+    return Math.floor(result); 
 }
 
-function normalizationCards(needCards, cards){ // массив случайных кард из исходного
+function normalizationCards(needCards, cards){ // массив N-случайных карт из исходного
     let resultCards = [];
     while (resultCards.length < needCards) {
         resultCards.push(cards.splice(randomCard(cards.length),1)[0]);
