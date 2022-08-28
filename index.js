@@ -260,10 +260,11 @@ function shuffleСards (){
     while (stage3Cards.length > 0) {
         cardsResult.push(stage3Cards.splice(randomCard(stage3Cards.length, stage3Cards),1)[0])
     }
-    levels.forEach((them)=>{
-        them.classList.remove('level-activ');
-    });
+    
     start.classList.remove('start-on');
+    levels.forEach((them)=>{
+        them.classList.remove('level-on');
+    });
 
 
 
@@ -274,13 +275,58 @@ function openCard () {
     if (cardsResult.length > 0) {
         let currentCard = cardsResult.shift();
         cardFace.style.backgroundImage = `url(./cards/${currentCard.id}.png)`;
+        tracker(currentCard);
     };    
     if (cardsResult.length == 0){
         cardDown.classList.remove('cards-down_aktiv');
+        ancients.forEach((them)=>{
+            them.classList.remove('ancient-activ');
+        });
+        levels.forEach((them)=>{
+            them.classList.remove('level-activ');
+        });
     };
    
 
 }
+
+function tracker(card) {
+    if (card.color =='green'){
+        if (ancientData[0]> 0) {
+            ancientData[0]--;
+        } else {
+            if (ancientData[3]>0) {
+                ancientData[3]--;
+            } else {
+                ancientData[6]--;
+            }
+        }
+    }
+    if (card.color =='brown'){
+        if (ancientData[1]> 0) {
+            ancientData[1]--;
+        } else {
+            if (ancientData[4]>0) {
+                ancientData[4]--;
+            } else {
+                ancientData[7]--;
+            }
+        }
+    }
+    if (card.color =='blue'){
+        if (ancientData[2]> 0) {
+            ancientData[2]--;
+        } else {
+            if (ancientData[5]>0) {
+                ancientData[5]--;
+            } else {
+                ancientData[8]--;
+            }
+        }
+    }
+    setDots();
+}
+
 
 function setDots () {
     dots.forEach((el,i)=> {
